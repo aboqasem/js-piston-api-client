@@ -13,8 +13,8 @@ abstract class AbstractPistonClient {
 
   private cachedRuntimes?: PistonRuntime[];
 
-  public constructor(options: PistonClientOptions) {
-    let { server = publicServer } = options;
+  public constructor(options?: PistonClientOptions) {
+    let server = options?.server ?? publicServer;
     server = server.replace(/\/$/, '');
     this.baseUrl = server === publicServer ? `${server}/api/v2/piston` : `${server}/api/v2`;
   }
