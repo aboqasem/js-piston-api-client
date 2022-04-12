@@ -3,8 +3,8 @@
   "$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/master/cspell.schema.json",
   "language": "en",
   "words": [
-    "bitjson",
     "bitauth",
+    "bitjson",
     "cimg",
     "commitlint",
     "dependabot",
@@ -16,6 +16,7 @@
     "libauth",
     "mkdir",
     "prettierignore",
+    "runtimes",
     "sandboxed",
     "transpiled",
     "typedoc",
