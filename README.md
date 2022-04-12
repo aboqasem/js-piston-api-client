@@ -1,3 +1,71 @@
 # Piston API Client
 
-Client wrapper for the Piston Code Execution Engine API
+Client wrapper for the [Piston Code Execution Engine](https://github.com/engineer-man/piston) API.
+
+Inspired by [node-piston](https://github.com/dthree/node-piston).
+
+## Installation
+
+```bash
+npm i piston-api-client
+yarn add piston-api-client
+pnpm add piston-api-client
+```
+
+## Usage Example
+
+```js
+import { PistonClient } from 'piston-api-client';
+// or for node.js
+import { NodePistonClient as PistonClient } from 'piston-api-client';
+
+(async () => {
+  const pistonClient = new PistonClient({ server: 'https://emkc.org' /* default */ });
+
+  const runtimes = await pistonClient.runtimes();
+  if (runtimes.success) {
+    console.log(runtimes.data);
+    // [
+    //   {
+    //     "language": "typescript",
+    //     "version": "1.7.5",
+    //     "aliases": [
+    //       "deno-ts",
+    //       "deno"
+    //     ],
+    //     "runtime": "deno"
+    //   },
+    //   ...
+    // ]
+  }
+
+  const result = await pistonClient.execute({
+    language: 'node-js',
+    version: '*',
+    files: [
+      {
+        content: 'console.log(process.argv.slice(2))',
+      },
+    ],
+    args: ['Hello', 'World'],
+  });
+  if (result.success) {
+    console.log(result.data);
+    // {
+    //  "run": {
+    //   "stdout": "[ 'Hello', 'World' ]\n",
+    //   "stderr": "",
+    //   "code": 0,
+    //   "signal": null,
+    //   "output": "[ 'Hello', 'World' ]\n"
+    //  },
+    //  "language": "javascript",
+    //  "version": "16.3.0"
+    // }
+  }
+})();
+```
+
+### Error handling
+
+If an error occurs, the `success` property will be `false` and the `error` property will contain the error. Nothing will be thrown.
