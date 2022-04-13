@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/aboqasem/js-piston-api-client/compare/v1.0.2...v1.1.0) (2022-04-13)
+
+
+### Features
+
+* export `AbstractPistonClient` for extendability ([064dfb1](https://github.com/aboqasem/js-piston-api-client/commit/064dfb1e122395a27a9fab81203f9109bd185b9c))
+
+
+### Bug Fixes
+
+* **node:** use `https`/`http` according to url ([f87b328](https://github.com/aboqasem/js-piston-api-client/commit/f87b32807bf59a389e4e1b8569d0df0ab9a23f70))
+
 ### [1.0.2](https://github.com/aboqasem/js-piston-api-client/compare/v1.0.1...v1.0.2) (2022-04-12)
 
 
