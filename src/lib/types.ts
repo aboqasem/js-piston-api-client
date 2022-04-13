@@ -1,3 +1,5 @@
+import type { headers } from './constants';
+
 export interface PistonClientOptions {
   /**
    * The domain name of the Piston server to be used. Defaults to https://emkc.org.
@@ -64,7 +66,7 @@ export interface PistonExecuteData {
   run_memory_limit?: number;
 }
 
-export type PistonExecuteResult = {
+export interface PistonExecuteResult {
   language: string;
   version: string;
   run: {
@@ -83,4 +85,8 @@ export type PistonExecuteResult = {
     code: number;
     signal: string | null;
   };
-};
+}
+
+export interface RequestOptions {
+  headers: typeof headers;
+}
