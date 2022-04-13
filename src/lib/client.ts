@@ -1,4 +1,5 @@
 import http from 'http';
+import https from 'https';
 import {
   PistonClientOptions,
   PistonExecuteData,
@@ -147,8 +148,10 @@ abstract class AbstractPistonClient {
  */
 export class NodePistonClient extends AbstractPistonClient {
   protected get<T>(url: string, options: { headers: Record<string, string> }): Promise<T> {
+    const client = url.startsWith('https') ? https : http;
+
     return new Promise((resolve, reject) => {
-      const req = http.get(url, { headers: options.headers }, (res) => {
+      const req = client.get(url, { headers: options.headers }, (res) => {
         let data = '';
         res.on('data', (chunk) => {
           data += chunk;
@@ -168,8 +171,10 @@ export class NodePistonClient extends AbstractPistonClient {
     data: unknown,
     options: { headers: Record<string, string> },
   ): Promise<T> {
+    const client = url.startsWith('https') ? https : http;
+
     return new Promise((resolve, reject) => {
-      const req = http.request(url, { method: 'POST', headers: options.headers }, (res) => {
+      const req = client.request(url, { method: 'POST', headers: options.headers }, (res) => {
         let data = '';
         res.on('data', (chunk) => {
           data += chunk;
