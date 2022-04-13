@@ -4,6 +4,13 @@ Client wrapper for the [Piston Code Execution Engine](https://github.com/enginee
 
 Inspired by [node-piston](https://github.com/dthree/node-piston).
 
+## Features
+
+- **🚀 Compatibility**: Node.js and Fetch API compatible environments (e.g. Web, React-Native, etc.).
+- **🔧 Extensible**: optionally provide your own HTTP methods and bring it to any JS platform if it is not in the supported environments.
+- **🤖 IntelliSense**: built with TypeScript.
+- **0️⃣ No dependencies**: uses native HTTP clients for requests.
+
 ## Installation
 
 ```bash
@@ -69,9 +76,10 @@ import { NodePistonClient as PistonClient } from 'piston-api-client';
 ### Your own HTTP methods
 
 ```js
+import axios from 'axios';
 import { AbstractPistonClient } from 'piston-api-client';
 
-class PistonClient extends AbstractPistonClient {
+export class PistonClient extends AbstractPistonClient {
   get(url, options) {
     return axios.get(url, options).then((response) => response.data);
   }
