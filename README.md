@@ -66,6 +66,22 @@ import { NodePistonClient as PistonClient } from 'piston-api-client';
 })();
 ```
 
+### Your own HTTP methods
+
+```js
+import { AbstractPistonClient } from 'piston-api-client';
+
+class PistonClient extends AbstractPistonClient {
+  get(url, options) {
+    return axios.get(url, options).then((response) => response.data);
+  }
+
+  post(url, data, options) {
+    return axios.post(url, data, options).then((response) => response.data);
+  }
+}
+```
+
 ### Error handling
 
 If an error occurs, the `success` property will be `false` and the `error` property will contain the error. Nothing will be thrown.

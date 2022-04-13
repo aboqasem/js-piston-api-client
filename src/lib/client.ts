@@ -9,7 +9,7 @@ import {
 
 const publicServer = 'https://emkc.org';
 
-abstract class AbstractPistonClient {
+export abstract class AbstractPistonClient {
   private baseUrl: string;
 
   private cachedRuntimes?: PistonRuntime[];
