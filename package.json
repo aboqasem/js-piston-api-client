@@ -1,6 +1,6 @@
 {
   "name": "piston-api-client",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Client wrapper for the Piston Code Execution Engine API",
   "main": "build/main/index.js",
   "typings": "build/main/index.d.ts",
