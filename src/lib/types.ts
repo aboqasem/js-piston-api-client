@@ -82,6 +82,7 @@ export interface PistonExecuteResult {
   compile?: {
     stdout: string;
     stderr: string;
+    output: string;
     code: number;
     signal: string | null;
   };
