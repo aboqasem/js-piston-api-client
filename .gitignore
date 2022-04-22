@@ -4,3 +4,4 @@ node_modules
 src/**.js
 *.log
 package-lock.json
+.DS_Store
