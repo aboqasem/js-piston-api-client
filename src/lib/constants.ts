@@ -1,5 +1,7 @@
 export const publicServer = 'https://emkc.org';
 
-export const headers = {
-  'Content-Type': 'application/json' as const,
-} as const;
+export const options = Object.freeze({
+  headers: Object.freeze({
+    'Content-Type': 'application/json' as const,
+  }),
+});

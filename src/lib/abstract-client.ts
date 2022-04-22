@@ -1,4 +1,4 @@
-import { publicServer } from './constants';
+import { options, publicServer } from './constants';
 import type {
   PistonClientOptions,
   PistonExecuteData,
@@ -69,9 +69,7 @@ export abstract class AbstractPistonClient {
       return { success: true, data: this.cachedRuntimes };
     }
 
-    return this.get<PistonRuntime[]>(`${this.baseUrl}/runtimes`, {
-      headers: { 'Content-Type': 'application/json' },
-    })
+    return this.get<PistonRuntime[]>(`${this.baseUrl}/runtimes`, options)
       .then((runtimes) => {
         this.cachedRuntimes = runtimes;
 
@@ -135,9 +133,7 @@ export abstract class AbstractPistonClient {
     data: PistonExecuteData,
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   ): Promise<{ success: true; data: PistonExecuteResult } | { success: false; error: any }> {
-    return this.post<PistonExecuteResult>(`${this.baseUrl}/execute`, data, {
-      headers: { 'Content-Type': 'application/json' },
-    })
+    return this.post<PistonExecuteResult>(`${this.baseUrl}/execute`, data, options)
       .then((result) => {
         return { success: true as const, data: result };
       })

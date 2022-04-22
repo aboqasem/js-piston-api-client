@@ -1,4 +1,4 @@
-import type { headers } from './constants';
+import type { options } from './constants';
 
 export interface PistonClientOptions {
   /**
@@ -92,8 +92,6 @@ export interface PistonExecuteResult {
   };
 }
 
-export interface RequestOptions {
-  headers: typeof headers;
-}
+export type RequestOptions = typeof options;
 
 export type PostRequestData = PistonExecuteData;
