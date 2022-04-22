@@ -91,3 +91,5 @@ export interface PistonExecuteResult {
 export interface RequestOptions {
   headers: typeof headers;
 }
+
+export type PostRequestData = PistonExecuteData;

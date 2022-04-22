@@ -4,6 +4,7 @@ import type {
   PistonExecuteData,
   PistonExecuteResult,
   PistonRuntime,
+  PostRequestData,
   RequestOptions,
 } from './types';
 
@@ -20,7 +21,11 @@ export abstract class AbstractPistonClient {
 
   protected abstract get<T>(url: string, options: RequestOptions): Promise<T>;
 
-  protected abstract post<T>(url: string, data: unknown, options: RequestOptions): Promise<T>;
+  protected abstract post<T>(
+    url: string,
+    data: PostRequestData,
+    options: RequestOptions,
+  ): Promise<T>;
 
   /**
    * Get supported runtimes.

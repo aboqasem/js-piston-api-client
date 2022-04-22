@@ -1,5 +1,5 @@
 import { AbstractPistonClient } from './abstract-client';
-import type { RequestOptions } from './types';
+import type { PostRequestData, RequestOptions } from './types';
 
 /**
  * Piston client for the browser or fetch API compatible environments. Uses the fetch API to communicate with the Piston API.
@@ -16,7 +16,7 @@ export class PistonClient extends AbstractPistonClient {
     return await res.json();
   }
 
-  protected async post<T>(url: string, data: unknown, options: RequestOptions): Promise<T> {
+  protected async post<T>(url: string, data: PostRequestData, options: RequestOptions): Promise<T> {
     const res = await fetch(url, {
       method: 'POST',
       headers: options.headers,

@@ -1,7 +1,7 @@
 import http from 'http';
 import https from 'https';
 import { AbstractPistonClient } from './abstract-client';
-import type { RequestOptions } from './types';
+import type { PostRequestData, RequestOptions } from './types';
 
 /**
  * Piston client for Node.js. Uses the Node.js http module to communicate with the Piston API.
@@ -28,7 +28,7 @@ export class NodePistonClient extends AbstractPistonClient {
     });
   }
 
-  protected post<T>(url: string, data: unknown, options: RequestOptions): Promise<T> {
+  protected post<T>(url: string, data: PostRequestData, options: RequestOptions): Promise<T> {
     const client = url.startsWith('https') ? https : http;
 
     return new Promise((resolve, reject) => {
