@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](https://github.com/aboqasem/js-piston-api-client/compare/v1.2.0...v2.0.0) (2022-04-22)
+
+
+### ⚠ BREAKING CHANGES
+
+* **constants:** Freeze the `options` object to disallow modifications to it during runtime.
+
+* **constants:** freeze the requset `options` and use it in requests ([81f6004](https://github.com/aboqasem/js-piston-api-client/commit/81f6004b815935a3c445c4ae222cee5dd61250eb))
+
 ## [1.2.0](https://github.com/aboqasem/js-piston-api-client/compare/v1.1.1...v1.2.0) (2022-04-22)
 
 
