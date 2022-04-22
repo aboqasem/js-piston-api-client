@@ -5,6 +5,10 @@ export interface PistonClientOptions {
    * The domain name of the Piston server to be used. Defaults to https://emkc.org.
    */
   server?: string;
+  /**
+   * Cache time for the runtimes. Defaults to 1 day.
+   */
+  cacheTime?: number;
 }
 
 export interface PistonRuntime {

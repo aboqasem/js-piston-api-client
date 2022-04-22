@@ -13,10 +13,12 @@ export abstract class AbstractPistonClient {
 
   private cachedRuntimes?: PistonRuntime[];
 
+  private cacheTime = 1000 * 60 * 60 * 24;
+
   public constructor(options?: PistonClientOptions) {
-    let server = options?.server ?? publicServer;
-    server = server.replace(/\/$/, '');
+    const server = (options?.server ?? publicServer).replace(/\/$/, '');
     this.baseUrl = server === publicServer ? `${server}/api/v2/piston` : `${server}/api/v2`;
+    this.cacheTime = options?.cacheTime ?? this.cacheTime;
   }
 
   protected abstract get<T>(url: string, options: RequestOptions): Promise<T>;
@@ -72,6 +74,11 @@ export abstract class AbstractPistonClient {
     })
       .then((runtimes) => {
         this.cachedRuntimes = runtimes;
+
+        setTimeout(() => {
+          this.cachedRuntimes = undefined;
+        }, this.cacheTime);
+
         return { success: true as const, data: runtimes };
       })
       .catch((error) => {
