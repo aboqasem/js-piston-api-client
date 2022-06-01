@@ -13,10 +13,22 @@ Inspired by [node-piston](https://github.com/dthree/node-piston).
 
 ## Installation
 
+### Using [PNPM](https://pnpm.io/)
+
+```bash
+pnpm add piston-api-client
+```
+
+### Using [Yarn](https://yarnpkg.com/)
+
+```bash
+yarn add piston-api-client
+```
+
+### Using [NPM](https://www.npmjs.com/)
+
 ```bash
 npm i piston-api-client
-yarn add piston-api-client
-pnpm add piston-api-client
 ```
 
 ## Usage Example
@@ -59,15 +71,15 @@ import { NodePistonClient as PistonClient } from 'piston-api-client';
   if (result.success) {
     console.log(result.data);
     // {
-    //  "run": {
-    //   "stdout": "[ 'Hello', 'World' ]\n",
-    //   "stderr": "",
-    //   "code": 0,
-    //   "signal": null,
-    //   "output": "[ 'Hello', 'World' ]\n"
-    //  },
-    //  "language": "javascript",
-    //  "version": "16.3.0"
+    //   "run": {
+    //     "stdout": "[ 'Hello', 'World' ]\n",
+    //     "stderr": "",
+    //     "code": 0,
+    //     "signal": null,
+    //     "output": "[ 'Hello', 'World' ]\n"
+    //   },
+    //   "language": "javascript",
+    //   "version": "16.3.0"
     // }
   }
 })();

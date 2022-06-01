@@ -4,7 +4,7 @@ import { AbstractPistonClient } from './abstract-client';
 import type { PostRequestData, RequestOptions } from './types';
 
 /**
- * Piston client for Node.js. Uses the Node.js http module to communicate with the Piston API.
+ * Piston client for Node.js `<18.0.0`. Uses the Node.js `http` module to communicate with the Piston API.
  *
  * Do not use this class in the browser.
  */

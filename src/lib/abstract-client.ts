@@ -37,7 +37,7 @@ export abstract class AbstractPistonClient {
    * ## Example
    * ```js
    * import { PistonClient } from 'piston-api-client';
-   * // or for node.js
+   * // or for node.js `<18.0.0`
    * import { NodePistonClient as PistonClient } from 'piston-api-client';
    *
    * (async () => {
@@ -96,7 +96,7 @@ export abstract class AbstractPistonClient {
    * ## Example
    * ```js
    * import { PistonClient } from 'piston-api-client';
-   * // or for node.js
+   * // or for node.js `<18.0.0`
    * import { NodePistonClient as PistonClient } from 'piston-api-client';
    *
    * (async () => {
@@ -115,15 +115,15 @@ export abstract class AbstractPistonClient {
    *   if (result.success) {
    *     console.log(result.data);
    *     // {
-   *     //  "run": {
-   *     //   "stdout": "[ 'Hello', 'World' ]\n",
-   *     //   "stderr": "",
-   *     //   "code": 0,
-   *     //   "signal": null,
-   *     //   "output": "[ 'Hello', 'World' ]\n"
-   *     //  },
-   *     //  "language": "javascript",
-   *     //  "version": "16.3.0"
+   *     //   "run": {
+   *     //     "stdout": "[ 'Hello', 'World' ]\n",
+   *     //     "stderr": "",
+   *     //     "code": 0,
+   *     //     "signal": null,
+   *     //     "output": "[ 'Hello', 'World' ]\n"
+   *     //   },
+   *     //   "language": "javascript",
+   *     //   "version": "16.3.0"
    *     // }
    *   }
    * })();
