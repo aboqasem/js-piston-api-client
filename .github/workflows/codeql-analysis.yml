@@ -22,7 +22,7 @@ jobs:
       fail-fast: false
       matrix:
         # Learn more about CodeQL language support at https://aka.ms/codeql-docs/language-support
-        language: [ 'javascript', 'typescript' ]
+        language: [ 'javascript' ]
 
     steps:
     - name: Checkout repository
